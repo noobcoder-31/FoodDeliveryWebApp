@@ -1,0 +1,70 @@
+<div class="card mt-5 mb-5">
+    <div class="row">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <!-- Cart Section -->
+        <div class="col-md-8 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col"><h4><b>Order Cart</b></h4></div>
+                    <div class="col align-self-center text-right text-muted">{{ cartItems.length }} items</div>
+                </div>
+            </div>
+            
+            <!-- Loop through cart items -->
+            <div *ngFor="let item of cartItems; let i = index" class="row border-top border-bottom">
+                <div class="row main align-items-center">
+                    <div class="col-2">
+                        <img class="img-fluid" src="https://gratisography.com/wp-content/uploads/2024/03/gratisography-funflower-800x525.jpg" alt="{{ item.name }}">
+                    </div>
+                    <div class="col">
+                        <div class="row text-muted">{{ item.category }}</div>
+                        <div class="row">{{ item.name }}</div>
+                    </div>
+                    <div class="col">
+                        <button class = "minus-btn" (click)="decrementQuantity(i)"><i class="fa-solid fa-minus"></i></button>
+                        <a input class="border">{{ item.quantity }}</a>
+                        <button  class = "minus-btn" (click)="incrementQuantity(i)"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="col">
+                        ₹ {{ item.price * item.quantity | number:'1.2-2' }} 
+                        <span  class="close" (click)="removeItem(i)"><i class="fa-solid fa-trash"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back to Shop -->
+            <div class="back-to-shop mt-4">
+                <a href="menuitemslist">&leftarrow;</a><span class="text-muted">Back to shop</span>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="col-md-4 summary">
+            <div><h5><b>Summary</b></h5></div>
+            <hr>
+            <div class="row">
+                <div class="col" style="padding-left:0;">ITEMS {{ cartItems.length }}</div>
+                <div class="col text-right">₹ {{ totalPrice | number:'1.2-2' }}</div>
+            </div>
+            
+            <!-- Shipping and Promo Code -->
+            <form>
+                <p>SHIPPING</p>
+                <select>
+                    <option class="text-muted">Standard-Delivery- ₹5.00</option>
+                </select>
+                <p>GIVE CODE</p>
+                <input id="code" placeholder="Enter your code">
+            </form>
+
+            <!-- Total Price -->
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="col">TOTAL PRICE</div>
+                <div class="col text-right">₹ {{ totalPriceWithShipping | number:'1.2-2' }}</div>
+            </div>
+
+            <!-- Checkout Button -->
+            <button class="btn" (click)="tocustomerDetails()">CHECKOUT</button>
+        </div>
+    </div>
+</div>

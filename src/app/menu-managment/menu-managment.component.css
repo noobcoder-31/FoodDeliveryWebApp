@@ -1,0 +1,42 @@
+.card {
+  transition: transform 0.2s ease-in-out;
+  height: 100%; /* Ensures that card height stays fixed */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Keeps everything inside the card contained */
+}
+
+.card:hover {
+  transform: scale(1.02);
+  z-index: 1; /* Ensures the card appears above other cards while hovering */
+}
+
+.card-body {
+  flex-grow: 1; /* Ensures that content inside the card fills up the space without overflowing */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+}
+
+.btn-sm {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-control {
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #28a745;
+}
+
+.invalid-feedback {
+  font-size: 0.85rem;
+  color: #e74a3b;
+}
+
+

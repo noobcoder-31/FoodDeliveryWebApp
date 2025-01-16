@@ -1,0 +1,68 @@
+<div *ngIf="isLoading" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+<div class="card mt-5 mb-5" *ngIf="!isLoading">
+    <div class="row">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <!-- Orders Section -->
+        <div class="col-md-12 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col"><h4><b>My Orders</b></h4></div>
+                    <div class="col align-self-center text-right text-muted">{{ orders.length }} orders</div>
+                </div>
+            </div>
+           
+            <!-- Loop through orders -->
+            <div *ngFor="let order of orders" class="row border-top border-bottom mb-4">
+                <div class="row main align-items-center">
+                    <div class="col-md-12">
+                        <div class="row p-3" style="background-color: #f8f9fa;">
+                            <div class="col-md-6">
+                                <div class="text-muted">Order Date: {{ order.orderDate | date:'medium' }}</div>
+                                <div><b>{{ order.restaurantName }}</b></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-muted">Status</div>
+                                <div><span [class]="'badge ' + (order.status === 'Delivered' ? 'bg-success' : 'bg-warning')">
+                                    {{ order.status }}
+                                </span></div>
+                            </div>
+                            <div class="col-md-3 text-right">
+                                <div class="text-muted">Total Amount</div>
+                                <div><b>₹ {{ order.totalAmount | number:'1.2-2' }}</b></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 mt-3">
+                        <div class="row align-items-center">
+                            <div class="col-2">
+                                <img class="img-fluid" [src]="order.imageUrl || 'placeholder-image.jpg'" alt="{{ order.menuItemName }}">
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="row">{{ order.menuItemName }}</div>
+                                        <div class="row text-muted">Quantity: {{ order.quantity }}</div>
+                                    </div>
+                                    <div class="col-md-4 text-right">
+                                        <div>Unit Price: ₹ {{ order.unitPrice | number:'1.2-2' }}</div>
+                                        <div>Subtotal: ₹ {{ order.subTotal | number:'1.2-2' }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back to Shop -->
+            <div class="back-to-shop">
+                <a href="menuitemslist">&leftarrow;</a><span class="text-muted">Back to shop</span>
+            </div>
+        </div>
+    </div>
+</div>

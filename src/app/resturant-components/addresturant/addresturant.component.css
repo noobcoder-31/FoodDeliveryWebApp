@@ -1,0 +1,63 @@
+.container.restaurant {
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  font-size: 2.5rem;
+  color: #28a745;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #495057;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 15px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.invalid-feedback {
+  font-size: 0.875rem;
+  color: #dc3545;
+}
+
+.btn-lg {
+  font-size: 1.1rem;
+  padding: 15px 25px;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: 1px solid #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.text-center {
+  padding-top: 20px;
+}
+
+.fas {
+  margin-right: 10px;
+}
+
+select.form-control {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  font-size: 1rem;
+}

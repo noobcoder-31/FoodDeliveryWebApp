@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg shadow-sm p-3 rounded">
+  <div class="container-fluid">
+    <h3 class="logo">CRAVE NEST</h3>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto custom-nav">
+
+        <!-- Home Link - Common for Both Customer and Restaurant -->
+        <li class="nav-item px-2" *ngIf="!isLoggedIn">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" aria-current="page">Home</a>
+        </li>
+        <li class="nav-item px-2" *ngIf="userRole==='Customer'">
+          <a class="nav-link" routerLink="/customer-landing" routerLinkActive="active" aria-current="page">Home</a>
+        </li>
+        <li class="nav-item px-2" *ngIf="userRole==='Restaurant Admin'">
+          <a class="nav-link" routerLink="/restaurant-admin-landing" routerLinkActive="active" aria-current="page">Home</a>
+        </li>
+
+        <!-- Customer Specific Links -->
+          <li class="nav-item px-2" *ngIf="userRole === 'Customer'&&isLoggedIn">
+            <a class="nav-link" routerLink="/menuitemslist" routerLinkActive="active">Menu</a>
+          </li>
+          <li class="nav-item px-2" *ngIf="userRole === 'Customer'&&isLoggedIn">
+            <a class="nav-link" routerLink="/restaurantlist" routerLinkActive="active">Top Restaurant</a>
+          </li>
+          <li class="nav-item px-2" *ngIf="userRole === 'Customer'&&isLoggedIn">
+            <a class="nav-link" routerLink="/cart" routerLinkActive="active">Cart</a>
+          </li>
+          <li class="nav-item px-2" *ngIf="userRole === 'Customer'&&isLoggedIn">
+            <a class="nav-link" routerLink="/orders" routerLinkActive="active">Orders</a>
+          </li>
+          <li class="nav-item px-2" *ngIf="userRole === 'Customer'&&isLoggedIn">
+            <a class="nav-link" routerLink="/profile" routerLinkActive="active">Profile</a>
+          </li>
+
+        <!-- Restaurant Specific Links -->
+          <li class="nav-item px-2" *ngIf="userRole === 'Restaurant Admin'&&isLoggedIn">
+            <a class="nav-link" routerLink="/restaurantManagement" routerLinkActive="active">Restaurant Managment</a>
+          </li>
+          <li class="nav-item px-2" *ngIf="userRole === 'Restaurant Admin'&&isLoggedIn">
+            <a class="nav-link" routerLink="/menumanagment" routerLinkActive="active">Menu Management</a>
+          </li>
+          <li class="nav-item px-2" *ngIf="userRole === 'Restaurant Admin'&&isLoggedIn">
+            <a class="nav-link" routerLink="/orderlist" routerLinkActive="active">Orders</a>
+          </li>
+          <!-- <li class="nav-item px-2" *ngIf="userRole === 'Restaurant Admin'&&isLoggedIn">
+            <a class="nav-link" routerLink="/restaurant/promotions" routerLinkActive="active">Promotions</a>
+          </li> -->
+
+        <!-- About Us Link - Common for Both Customer and Restaurant -->
+        <li class="nav-item px-2" *ngIf="isLoggedIn === false">
+          <a class="nav-link" routerLink="/aboutus" routerLinkActive="active">About Us</a>
+        </li>
+
+        <!-- Register Link - Common for Both Customer and Restaurant -->
+        <li class="nav-item pr-4" *ngIf="isLoggedIn === false">
+          <a class="nav-link" routerLink="register" routerLinkActive="active">Register With Us</a>
+        </li>
+
+        <!-- Login/Logout Button -->
+        <div *ngIf="isLoggedIn === false">
+          <li class="nav-item ms-4 rounded-pill border border-white register px-2">
+            <a class="nav-link" id="login-btn" routerLink="login" routerLinkActive="active">Login/SignUp</a>
+          </li>
+        </div>
+
+        <!-- Logout Button - Visible Only When Logged In -->
+        <div *ngIf="isLoggedIn === true">
+          <li class="nav-item ms-4 rounded-pill border border-white register px-2">
+            <a class="nav-link" id="logout-btn" routerLink="home" routerLinkActive="active" (click)="logout()">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>

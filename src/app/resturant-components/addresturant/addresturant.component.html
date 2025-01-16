@@ -1,0 +1,237 @@
+<div class="container restaurant shadow-lg mt-5 mb-5 rounded">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="heading text-center mb-4 mt-3 text-success">
+        <i class="fas fa-utensils"></i> Add Restaurant
+      </h1>
+      <form
+        #restaurantForm="ngForm"
+        (ngSubmit)="onSubmit(restaurantForm)"
+        class="needs-validation"
+        novalidate
+      >
+        <div class="form-group mb-3">
+          <label for="name" class="form-label">
+            <i class="fas fa-store-alt"></i> Restaurant Name
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            ngModel
+            required
+            maxlength="100"
+            #name="ngModel"
+            [ngClass]="{
+              'is-invalid': name.invalid && (name.dirty || name.touched)
+            }"
+          />
+          <div
+            *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="name.hasError('required')">Restaurant name is required.</small>
+            <small *ngIf="name.hasError('maxlength')">Name must be at most 100 characters long.</small>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="description" class="form-label">
+            <i class="fas fa-info-circle"></i> Description
+          </label>
+          <textarea
+            class="form-control"
+            id="description"
+            name="description"
+            ngModel
+            required
+            maxlength="500"
+            #description="ngModel"
+            [ngClass]="{
+              'is-invalid': description.invalid && (description.dirty || description.touched)
+            }"
+          ></textarea>
+          <div
+            *ngIf="description.invalid && (description.dirty || description.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="description.hasError('required')">Description is required.</small>
+            <small *ngIf="description.hasError('maxlength')">Description must be at most 500 characters long.</small>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="address" class="form-label">
+            <i class="fas fa-map-marker-alt"></i> Address
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="address"
+            name="address"
+            ngModel
+            required
+            maxlength="200"
+            #address="ngModel"
+            [ngClass]="{
+              'is-invalid': address.invalid && (address.dirty || address.touched)
+            }"
+          />
+          <div
+            *ngIf="address.invalid && (address.dirty || address.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="address.hasError('required')">Address is required.</small>
+            <small *ngIf="address.hasError('maxlength')">Address must be at most 200 characters long.</small>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="city" class="form-label">
+            <i class="fas fa-city"></i> City
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            name="city"
+            ngModel
+            required
+            maxlength="100"
+            #city="ngModel"
+            [ngClass]="{
+              'is-invalid': city.invalid && (city.dirty || city.touched)
+            }"
+          />
+          <div
+            *ngIf="city.invalid && (city.dirty || city.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="city.hasError('required')">City is required.</small>
+            <small *ngIf="city.hasError('maxlength')">City must be at most 100 characters long.</small>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="state" class="form-label">
+            <i class="fas fa-map-signs"></i> State
+          </label>
+          <select
+            class="form-control"
+            id="state"
+            name="state"
+            ngModel
+            required
+            #state="ngModel"
+            [ngClass]="{
+              'is-invalid': state.invalid && (state.dirty || state.touched)
+            }"
+          >
+            <option value="" disabled selected>Select your state</option>
+            <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+          </select>
+          <div
+            *ngIf="state.invalid && (state.dirty || state.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="state.hasError('required')">State is required.</small>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="phone" class="form-label">
+            <i class="fas fa-phone"></i> Phone
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            name="phone"
+            ngModel
+            required
+            maxlength="15"
+            #phone="ngModel"
+            [ngClass]="{
+              'is-invalid': phone.invalid && (phone.dirty || phone.touched)
+            }"
+          />
+          <div
+            *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="phone.hasError('required')">Phone number is required.</small>
+            <small *ngIf="phone.hasError('maxlength')">Phone number must be at most 15 characters long.</small>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="email" class="form-label">
+            <i class="fas fa-envelope"></i> Email
+          </label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            ngModel
+            required
+            email
+            #email="ngModel"
+            [ngClass]="{
+              'is-invalid': email.invalid && (email.dirty || email.touched)
+            }"
+          />
+          <div
+            *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="email.hasError('required')">Email is required.</small>
+            <small *ngIf="email.hasError('email')">Please enter a valid email address.</small>
+          </div>
+        </div>
+
+        <!-- Image URL Field -->
+        <div class="form-group mb-3">
+          <label for="imageUrl" class="form-label">
+            <i class="fas fa-image"></i> Image URL
+          </label>
+          <input
+            type="file"
+            class="form-control"
+            id="imageUrl"
+            name="imageUrl"
+            ngModel
+            required
+            maxlength="500"
+            #imageUrl="ngModel"
+            (change)="onFileSelected($event)"
+            [ngClass]="{
+              'is-invalid': imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)
+            }"
+          />
+          <div
+            *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="imageUrl.hasError('required')">Image URL is required.</small>
+            <small *ngIf="imageUrl.hasError('maxlength')">URL must be at most 500 characters long.</small>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button
+            type="submit"
+            class="btn btn-success mb-3 btn-lg"
+            [disabled]="!restaurantForm.valid || loading"
+          >
+            <i class="fas fa-check-circle"></i>
+            <span *ngIf="loading">Submitting...</span>
+            <span *ngIf="!loading">Add Restaurant</span>
+            <ion-spinner *ngIf="loading" name="crescent" class="spinner-sm"></ion-spinner>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

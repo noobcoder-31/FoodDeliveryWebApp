@@ -1,0 +1,112 @@
+/* Header Styles */
+.menu-header {
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+}
+
+.fancy-underline {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, #007bff, #00ff88);
+  border-radius: 3px;
+}
+
+/* Filter Styles */
+.filter-section {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+}
+
+.filter-container {
+  transition: all 0.3s ease;
+}
+
+.form-select {
+  border: 1px solid #dee2e6;
+  transition: all 0.2s ease;
+}
+
+.form-select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Menu Card Styles */
+.menu-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.category-badge {
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.price-tag {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.restaurant-info {
+  font-size: 0.9rem;
+}
+
+/* Button Styles */
+.btn-primary {
+  padding: 10px 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Loading Animation */
+.loading-container {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .menu-card {
+    margin-bottom: 1rem;
+  }
+  
+  .filter-section {
+    position: relative;
+  }
+}
+
+/* Utility Classes */
+.hover-shadow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.transition {
+  transition: all 0.3s ease;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}

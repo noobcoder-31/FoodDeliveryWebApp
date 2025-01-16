@@ -1,0 +1,168 @@
+<div class="container mt-5 shadow mb-5 p-4">
+  <div class="row justify-content-center">
+    <h3 class="text-center mb-3">Join Our Community!</h3>
+    <div class="col-md-6">
+      <form
+        #userform="ngForm"
+        (ngSubmit)="OnSubmit(userform)"
+        class="needs-validation"
+        novalidate
+      >
+        <!-- Username Field -->
+        <div class="form-group mb-3">
+          <label for="username" class="form-label">
+            <i class="fas fa-user"></i> Username
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="username"
+            ngModel
+            required
+            maxlength="50"
+            #username="ngModel"
+            [ngClass]="{
+              'is-invalid':
+                username.invalid && (username.dirty || username.touched)
+            }"
+          />
+          <div
+            *ngIf="username.invalid && (username.dirty || username.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="username.hasError('required')"
+              >Username is required.</small
+            >
+            <small *ngIf="username.hasError('maxlength')"
+              >Username must be at most 50 characters long.</small
+            >
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group mb-3">
+          <label for="password" class="form-label">
+            <i class="fas fa-lock"></i> Password
+          </label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            ngModel
+            required
+            #password="ngModel"
+            [ngClass]="{
+              'is-invalid':
+                password.invalid && (password.dirty || password.touched)
+            }"
+          />
+          <div
+            *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="password.hasError('required')"
+              >Password is required.</small
+            >
+          </div>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group mb-3">
+          <label for="email" class="form-label">
+            <i class="fas fa-envelope"></i> Email
+          </label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            ngModel
+            required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            #email="ngModel"
+            [ngClass]="{ 'is-invalid': email.touched && email.invalid }"
+          />
+          <div *ngIf="email.touched && email.invalid" class="invalid-feedback">
+            <small *ngIf="email.hasError('required')">Email is required</small>
+            <small *ngIf="email.hasError('pattern')"
+              >Invalid email pattern</small
+            >
+          </div>
+        </div>
+
+        <!-- Role Field -->
+        <div class="form-group">
+          <label for="role" class="form-label">
+            <i class="fas fa-users-cog"></i> Role
+          </label>
+          <select
+            id="role"
+            name="role"
+            class="form-select"
+            ngModel
+            required
+            #role="ngModel"
+            [ngClass]="{
+              'is-invalid': role.invalid && (role.dirty || role.touched)
+            }"
+          >
+            <option value="">Select a role</option>
+            <option value="Customer">Customer</option>
+            <option value="Restaurant Admin">Restaurant Admin</option>
+          </select>
+          <div
+            *ngIf="role.invalid && (role.dirty || role.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="role.hasError('required')">Role is required.</small>
+          </div>
+        </div>
+
+        <!-- Profile Picture Field -->
+        <div class="form-group mb-3">
+          <label for="profilepicture" class="form-label">
+            <i class="fas fa-image"></i> Profile Picture
+          </label>
+          <input
+            type="file"
+            class="form-control"
+            id="profilepicture"
+            name="profilepicture"
+            accept="image/*"
+            ngModel
+            (change)="onFileSelected($event)"
+            #profilepicture="ngModel"
+            [ngClass]="{
+              'is-invalid':
+                profilepicture.invalid &&
+                (profilepicture.dirty || profilepicture.touched)
+            }"
+          />
+          <div
+            *ngIf="
+              profilepicture.invalid &&
+              (profilepicture.dirty || profilepicture.touched)
+            "
+            class="invalid-feedback"
+          >
+            <small *ngIf="profilepicture.hasError('required')"
+              >Profile picture is required.</small
+            >
+          </div>
+        </div>
+        <a href="/login"
+          ><span class="accCheck">Already have an account ?</span></a
+        >
+
+        <div class="text-center mt-4">
+          <button *ngIf="!loader" type="submit" class="mybtn">
+            <i class="fas fa-check"></i> Submit
+          </button>
+          <ion-spinner name="crescent" *ngIf="loader"></ion-spinner>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

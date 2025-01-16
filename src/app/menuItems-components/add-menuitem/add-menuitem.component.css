@@ -1,0 +1,30 @@
+/* Center the form within the container */
+.container {
+  max-width: 800px;
+  margin-top: 50px;
+}
+
+/* Add some margin at the bottom of each form element */
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+/* Adjust the size of the icons */
+.form-label i {
+  margin-right: 10px;
+}
+.btn-gap button {
+  margin-right: 10px; /* Adjust this value to set the desired gap */
+}
+
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+.btn-gap{
+  margin-right:10px;
+}

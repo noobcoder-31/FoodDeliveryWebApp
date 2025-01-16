@@ -1,0 +1,22 @@
+.category{
+    border: 0.01px solid #fef9f2;
+    background-color: white;
+    width: 50%;
+}
+
+.category:hover{
+    background-color: whitesmoke;
+}
+
+
+.btn{
+    background-color:#37b7c3;
+    color: white;
+}
+
+.btn:hover{
+    background-color: white;
+    color: #37b7c3;
+    text-decoration-line: underline;
+}
+

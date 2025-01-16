@@ -1,0 +1,115 @@
+<div class="card mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-8 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col"><h4><b>Payment Details</b></h4></div>
+                </div>
+            </div>
+            
+            <form #paymentForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="main">
+                    <!-- Order ID -->
+                    <div class="form-group">
+                        <!-- <label>Order ID</label> -->
+                        <input type="hidden" 
+                               class="form-control" 
+                               name="orderId" 
+                               [(ngModel)]="payment.orderId" 
+                               required
+                               readonly>
+                    </div>
+
+                    <!-- Payment Date -->
+                    <div class="form-group">
+                        <label>Payment Date</label>
+                        <input type="date" 
+                               class="form-control" 
+                               name="paymentDate" 
+                               [(ngModel)]="payment.paymentDate" 
+                               [value]="getCurrentDate()"
+                               readonly>
+                    </div>
+
+                    <!-- Amount -->
+                    <div class="form-group">
+                        <label>Amount (₹)</label>
+                        <input type="number" 
+                               class="form-control" 
+                               name="amount" 
+                               [(ngModel)]="payment.amount" 
+                            
+                               required>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="form-group">
+                        <label>Payment Method</label>
+                        <select class="form-control" 
+                                name="paymentMethod" 
+                                [(ngModel)]="payment.paymentMethod" 
+                                required>
+                            <option value="Credit Card">Credit Card</option>
+                            <option value="Debit Card">Debit Card</option>
+                            <option value="UPI">UPI</option>
+                            <option value="Cash">Cash</option>
+                        </select>
+                    </div>
+
+                    <!-- Status -->
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select class="form-control" 
+                                name="status" 
+                                [(ngModel)]="payment.status" 
+                                required>
+                            <option value="Pending">Pending</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Failed">Failed</option>
+                        </select>
+                    </div>
+
+                    <!-- Transaction ID -->
+                    <div class="form-group">
+                        <label>Transaction ID</label>
+                        <input type="text" 
+                               class="form-control" 
+                               name="transactionId" 
+                               [(ngModel)]="payment.transactionId" 
+                               required>
+                    </div>
+
+                    <button type="submit" class="btn" [disabled]="!paymentForm.valid">
+                        Process Payment
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="col-md-4 summary">
+            <div><h5><b>Payment Summary</b></h5></div>
+            <hr>
+            
+            <div class="row">
+                <div class="col" style="padding-left:0;">Order ID</div>
+                <div class="col text-right">{{payment.orderId}}</div>
+            </div>
+            
+            <div class="row">
+                <div class="col" style="padding-left:0;">Amount</div>
+                <div class="col text-right">₹ {{payment.amount | number:'1.2-2'}}</div>
+            </div>
+            
+            <div class="row">
+                <div class="col" style="padding-left:0;">Payment Method</div>
+                <div class="col text-right">{{payment.paymentMethod}}</div>
+            </div>
+            
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="col">Status</div>
+                <div class="col text-right">{{payment.status}}</div>
+            </div>
+        </div>
+    </div>
+</div>

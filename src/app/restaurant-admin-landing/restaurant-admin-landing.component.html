@@ -1,0 +1,84 @@
+<div class="container mt-5 mb-5 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="text-center mb-4">
+        <h2 class="text-success">Welcome, Restaurant Admin!</h2>
+        <p class="lead text-muted">Manage your restaurant, update the menu, and view orders.</p>
+        <i class="fas fa-hamburger fa-4x text-primary animate__animated animate__pulse animate__infinite"></i>
+      </div>
+
+      <!-- Dashboard Overview Section -->
+      <div class="card shadow-sm mb-4 animate__animated animate__fadeInUp">
+        <div class="card-body">
+          <h5 class="card-title text-center text-info">
+            <i class="fas fa-chart-line"></i> Dashboard Overview
+          </h5>
+          <p class="text-center text-muted">Get a quick glance at your restaurant's activity and performance.</p>
+          <div class="row">
+            <div class="col-4 text-center">
+              <h6 class="text-success">Orders Today</h6>
+              <p class="lead">45</p>
+            </div>
+            <div class="col-4 text-center">
+              <h6 class="text-primary">Total Revenue</h6>
+              <p class="lead">$1,200</p>
+            </div>
+            <div class="col-4 text-center">
+              <h6 class="text-warning">Active Promotions</h6>
+              <p class="lead">3</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Management -->
+      <div class="card shadow-sm mt-4">
+        <div class="card-body">
+          <h5 class="card-title text-center text-info">
+            <i class="fas fa-edit"></i> Manage Menu
+          </h5>
+          <p class="text-center text-muted">Update your menu items, prices, and descriptions.</p>
+          <div class="text-center">
+            <a routerLink="/menumanagment" class="btn btn-primary btn-lg px-4 py-2 transition-effect">
+              <i class="fas fa-utensils"></i> Edit Menu
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orders Management -->
+      <div class="card shadow-sm mt-4">
+        <div class="card-body">
+          <h5 class="card-title text-center text-warning">
+            <i class="fas fa-box"></i> Orders Management
+          </h5>
+          <p class="text-center text-muted">View and manage incoming orders from customers.</p>
+          <div class="text-center">
+            <a routerLink="/orderlist" class="btn btn-warning btn-lg px-4 py-2 transition-effect">
+              <i class="fas fa-clipboard-list"></i> View Orders
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Promotions and Discounts Management -->
+      <div class="card shadow-sm mt-4">
+        <div class="card-body">
+          <h5 class="card-title text-center text-success">
+            <i class="fas fa-gift"></i> Manage Promotions
+          </h5>
+          <p class="text-center text-muted">Create, update, and manage special offers and discounts.</p>
+          <div class="text-center">
+            <a href="/promotions" class="btn btn-success btn-lg px-4 py-2 transition-effect">
+              <i class="fas fa-tags"></i> Manage Promotions
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Include Animate.css for smooth animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">

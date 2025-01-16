@@ -1,0 +1,82 @@
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <!-- Profile Card -->
+      <div class="card shadow-lg mb-4">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4 text-center">
+              <!-- Profile Picture -->
+              <img src="{{ user.profilepicture }}" alt="Profile Picture" class="img-fluid rounded-circle mb-3 profile-img">
+              <h5 class="card-title text-primary">{{ user.username }}</h5>
+              <p class="text-muted">{{ user.role }}</p>
+            </div>
+            <div class="col-md-8">
+              <!-- User Information -->
+              <h4 class="text-info">Profile Details</h4>
+              <ul class="list-unstyled">
+                <li><strong><i class="fas fa-envelope"></i> Email:</strong> {{ user.email }}</li>
+                <li><strong><i class="fas fa-id-badge"></i> User ID:</strong> {{ user.userid }}</li>
+                <li><strong><i class="fas fa-user"></i> Role:</strong> {{ user.role}}</li>
+                <!-- Conditional Information based on Role -->
+                <!-- <li *ngIf="user.role === 'restaurant admin'"><strong><i class="ion-ios-restaurant"></i> Restaurant Info:</strong> {{ user.restaurantName || 'Not Available' }}</li> -->
+              </ul>
+              <!-- Buttons on Same Axis (Flexbox) -->
+              <div class="d-flex justify-content-between">
+                <!-- Manage Menu / Order History Button -->
+                <a href="{{ user.role === 'restaurant admin' ? '/manage-menu' : '/order-history' }}" class="btn btn-primary  px-4 py-2">
+                  <i class="fas fa-cogs"></i> {{ user.role === 'restaurant admin' ? 'Manage Menu' : 'Order History' }}
+                </a>
+
+                <!-- Logout Button -->
+                <button (click)="logout()" class="btn btn-danger  px-4 py-2">
+                  <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Actions (Optional) -->
+      <!-- <div class="text-center">
+        <button class="btn btn-warning btn-lg" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+          <i class="fas fa-edit"></i> Edit Profile
+        </button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal to Edit Profile (Optional) -->
+<!-- <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" value="{{ user.username }}">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" value="{{ user.email }}">
+          </div>
+          <div class="mb-3">
+            <label for="profilePicture" class="form-label">Profile Picture</label>
+            <input type="file" class="form-control" id="profilePicture">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->

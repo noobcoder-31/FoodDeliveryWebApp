@@ -1,0 +1,201 @@
+<div class="container menu-item shadow-lg mt-5 mb-5 rounded">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="heading text-center mb-4 mt-3 text-primary">
+        <i class="fas fa-concierge-bell"></i> Add Menu Item
+      </h1>
+
+      <form
+        #menuItemForm="ngForm"
+        (ngSubmit)="onSubmit(menuItemForm)"
+        class="needs-validation"
+        novalidate
+      >
+        <div class="form-group mb-3">
+          <label for="name" class="form-label">
+            <i class="fas fa-utensils"></i> Menu Item Name
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            [(ngModel)]="menuItems.name"
+            required
+            maxlength="100"
+            #name="ngModel"
+            [ngClass]="{
+              'is-invalid': name.invalid && (name.dirty || name.touched)
+            }"
+            placeholder="Enter menu item name"
+            aria-required="true"
+          />
+          <div
+            *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="name.hasError('required')"
+              >Menu item name is required.</small
+            >
+            <small *ngIf="name.hasError('maxlength')"
+              >Name must be at most 100 characters long.</small
+            >
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="description" class="form-label">
+            <i class="fas fa-info-circle"></i> Description
+          </label>
+          <textarea
+            class="form-control"
+            id="description"
+            name="description"
+            [(ngModel)]="menuItems.description"
+            required
+            maxlength="500"
+            #description="ngModel"
+            [ngClass]="{
+              'is-invalid':
+                description.invalid &&
+                (description.dirty || description.touched)
+            }"
+            placeholder="Describe the menu item"
+            aria-required="true"
+          ></textarea>
+          <div
+            *ngIf="description.invalid && (description.dirty || description.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="description.hasError('required')"
+              >Description is required.</small
+            >
+            <small *ngIf="description.hasError('maxlength')"
+              >Description must be at most 500 characters long.</small
+            >
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="price" class="form-label">
+            <i class="fas fa-rupee-sign"></i> Price
+          </label>
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            name="price"
+            [(ngModel)]="menuItems.price"
+            required
+            [ngClass]="{
+              'is-invalid': price.invalid && (price.dirty || price.touched)
+            }"
+            placeholder="Enter price"
+            min="0.01"
+            step="0.01"
+            #price="ngModel"
+            aria-required="true"
+          />
+          <div
+            *ngIf="price.invalid && (price.dirty || price.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="price.hasError('required')">Price is required.</small>
+            <small *ngIf="price.hasError('min')"
+              >Price must be greater than 0.</small
+            >
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="imageUrl" class="form-label">
+            <i class="fas fa-image"></i> Image
+          </label>
+          <input
+            type="file"
+            class="form-control"
+            id="imageUrl"
+            name="imageUrl"
+            [(ngModel)]="menuItems.imageUrl"
+            required
+            (change)="onFileSelected($event)"
+            maxlength="500"
+            #imageUrl="ngModel"
+            [ngClass]="{
+              'is-invalid':
+                imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)
+            }"
+            placeholder="Enter image URL"
+            aria-required="true"
+          />
+          <div
+            *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="imageUrl.hasError('required')"
+              >Image URL is required.</small
+            >
+            <small *ngIf="imageUrl.hasError('maxlength')"
+              >URL must be at most 500 characters long.</small
+            >
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="category" class="form-label">
+            <i class="fas fa-tags"></i> Category
+          </label>
+          <select
+            class="form-control"
+            id="category"
+            name="category"
+            [(ngModel)]="menuItems.category"
+            required
+            #category="ngModel"
+            [ngClass]="{
+              'is-invalid':
+                category.invalid && (category.dirty || category.touched)
+            }"
+            aria-required="true"
+          >
+            <option value="" disabled selected>Select Category</option>
+            <option
+              *ngFor="let category of allCategories"
+              [value]="category.categoryId"
+            >
+              {{ category.name }}
+            </option>
+          </select>
+          <div
+            *ngIf="category.invalid && (category.dirty || category.touched)"
+            class="invalid-feedback"
+          >
+            <small *ngIf="category.hasError('required')"
+              >Category is required.</small
+            >
+          </div>
+        </div>
+
+        <div class="text-center mt-3 btn-gap">
+          <button
+            type="submit"
+            class="btn btn-success mb-3 btn-lg"
+            [disabled]="!menuItemForm.valid || loading"
+          >
+            <i class="fas fa-check-circle"></i>
+            <span *ngIf="loading">Submitting...</span>
+            <span *ngIf="!loading">Add Menu Item</span>
+            <ion-spinner *ngIf="loading" name="crescent" class="spinner-sm"></ion-spinner>
+          </button>
+          <button
+            type="button"
+            class="btn btn-warning mb-3 btn-lg"
+            routerLink="/menumanagment"
+          >
+            <i class="fas fa-times-circle"></i> Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

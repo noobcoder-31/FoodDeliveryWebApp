@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+body
+{
+  font-family: "Poppins", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.logo{
+  font-family: "Quicksand", sans-serif;
+  font-weight:bolder;
+}
+
+html, body { height: 100%; }

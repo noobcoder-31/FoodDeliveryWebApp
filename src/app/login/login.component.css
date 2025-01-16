@@ -1,0 +1,41 @@
+.true-class{
+color: #37b7c3;
+cursor: pointer;
+}
+a{
+  text-decoration: none;
+}
+.false-class{
+  color: #92babd;
+  cursor: pointer;
+}
+.mybtn{
+  background-color: #37b7c3;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+}
+.large-spinner {
+  font-size: 64px;
+}
+.mybtn:hover{
+  background-color: white;
+  color: #37b7c3;
+  border: 1px solid #37b7c3;
+}
+.container
+{
+  width: 60%;
+  padding: 20px;
+}
+.accCheck{
+color: blue;
+font-size:x-small;
+margin-left: 220px;
+cursor: pointer;
+}
+.accCheck:hover{
+  text-decoration: underline;
+}

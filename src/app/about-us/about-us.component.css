@@ -1,0 +1,143 @@
+.first h1 {
+    color: black;
+    font-size: 3em;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 4em;
+}
+
+.About h1 {
+    color: white;
+    font-size: 4em;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 5px;
+    text-shadow:
+        -1px -1px 0px #000,
+        1px -1px 0px #000,
+        -1px 1px 0px #000,
+        1px 1px 0px #000;
+}
+
+*{
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%; 
+}
+
+.first {
+    height: 100vh; 
+    display: flex; 
+    align-items: center;
+    background-color: #37B7C3; 
+}
+
+.first .container {
+    display: flex; 
+    flex-direction: column; 
+    margin-left: 50px;
+}
+
+.second .container {
+    display: flex; 
+    flex-direction: column; 
+    margin-left: 50px;
+}
+
+.count{
+    display: flex;
+    margin: 5px;
+    justify-content :center;
+    align-items: center;
+    
+}
+.font{
+    font-weight: bold;
+    font-size: 3em;
+    margin-right: 10px;
+    color: #37B7C3;
+}
+
+i{
+    font-size: 3em;
+    justify-content: center;
+    align-items: center;
+}
+
+.text{
+    display: flex;
+    margin: 5px;
+    justify-content :center;
+    align-items: center;
+}
+
+.second{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  margin: 20px;
+}
+
+.icon{
+    margin-bottom: 20px;
+}
+
+.third{
+    height: 120vh; 
+    display: flex; 
+    background-color: #FEF9F2; 
+   
+}
+
+.team{
+    margin-top: 50px;
+}
+
+.card{
+    height: 400px;
+    margin-left: 15px;
+    width: 250px;
+    overflow: hidden;
+    border-radius: 0px;
+    
+}
+
+.simon img{
+    height: 370px;
+    object-position: 100% 10%;
+}
+
+.card img:hover{
+    /* transform: scale(1.1); */
+}
+
+.content{
+    color: white;
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+.card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name{
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 15px;
+    font-size: 20px;
+}
+
+
+
+

@@ -1,0 +1,154 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-5 text-primary">Restaurant Management</h2>
+
+  <!-- Add New Restaurant Button (visible if no restaurants are added) -->
+  <div *ngIf="restaurants===null" class="card shadow-lg border-light rounded mb-4">
+    <div class="card-body text-center">
+      <h5 class="card-title text-success mb-4">
+        <i class="fas fa-utensils"></i> No Restaurants Added Yet
+      </h5>
+      <p class="text-muted mb-4">Start by adding your first restaurant.</p>
+      <button routerLink="/newrestaurant" class="btn btn-success btn-lg px-5 py-3">
+        <i class="fas fa-plus-circle"></i> Add New Restaurant
+      </button>
+    </div>
+  </div>
+
+  <!-- Existing Restaurants (visible if there are any restaurants) -->
+  <div *ngIf="restaurants!=null">
+    <h5 class="text-center text-dark mb-4">
+      <i class="fas fa-utensils"></i> Existing Restaurants
+    </h5>
+
+    <div class="card shadow-sm mb-4 border-0 rounded-lg">
+      <div class="card-body p-4">
+        <!-- Restaurant Details Section -->
+        <div *ngIf="editingRestaurant?.restaurantId !== restaurants.restaurantId">
+          <div class="d-flex align-items-center">
+            <!-- Restaurant Image -->
+            <img
+              [src]="restaurants.image"
+              alt="Restaurant Image"
+              class="img-fluid mr-4 restaurant-image"
+            />
+
+            <div>
+              <!-- Restaurant Name -->
+              <h6 class="font-weight-bold text-primary fs-4">{{ restaurants.name }}</h6>
+              <p class="text-muted mb-2">{{ restaurants.description }}</p>
+              <p><i class="fas fa-location"></i> {{ restaurants.address }}</p>
+              <p><strong>{{ restaurants.city }}, {{ restaurants.state }}</strong></p>
+              <p><i class="fas fa-phone-alt"></i> {{ restaurants.phone }}</p>
+              <p><i class="fas fa-envelope"></i> {{ restaurants.email }}</p>
+            </div>
+          </div>
+
+          <!-- Edit and Delete Buttons -->
+          <div class="d-flex justify-content-start mt-3">
+            <button
+              class="btn btn-outline-primary btn-lg mr-3"
+              (click)="editRestaurant(restaurants)"
+              (mouseenter)="onHoverButton('edit', restaurants.restaurantId)"
+              (mouseleave)="onLeaveButton('edit', restaurants.restaurantId)"
+            >
+              <i class="fas fa-edit"></i> Edit
+            </button>
+            <button
+              class="btn btn-outline-danger btn-lg"
+              (click)="deleteRestaurant(restaurants.restaurantId)"
+              (mouseenter)="onHoverButton('delete', restaurants.restaurantId)"
+              (mouseleave)="onLeaveButton('delete', restaurants.restaurantId)"
+            >
+              <i class="fas fa-trash-alt"></i> Delete
+            </button>
+          </div>
+        </div>
+
+        <!-- Inline Edit Form Section -->
+        <div *ngIf="editingRestaurant!=null&&editingRestaurant?.restaurantId === restaurants.restaurantId">
+          <div class="row edit-form">
+            <div class="col-md-4 mb-3">
+              <label for="restaurantName" class="form-label"><i class="fas fa-store"></i> Restaurant Name</label>
+              <input
+                [(ngModel)]="editingRestaurant.name"
+                id="restaurantName"
+                class="form-control form-control-lg"
+                placeholder="Restaurant Name"
+              />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="description" class="form-label"><i class="fas fa-clipboard-list"></i> Description</label>
+              <input
+                [(ngModel)]="editingRestaurant.description"
+                id="description"
+                class="form-control form-control-lg"
+                placeholder="Description"
+              />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="city" class="form-label"><i class="fas fa-city"></i> City</label>
+              <input
+                [(ngModel)]="editingRestaurant.city"
+                id="city"
+                class="form-control form-control-lg"
+                placeholder="City"
+              />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="state" class="form-label"><i class="fas fa-map-marker-alt"></i> State</label>
+              <input
+                [(ngModel)]="editingRestaurant.state"
+                id="state"
+                class="form-control form-control-lg"
+                placeholder="State"
+              />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="address" class="form-label"><i class="fas fa-address-card"></i> Address</label>
+              <input
+                [(ngModel)]="editingRestaurant.address"
+                id="address"
+                class="form-control form-control-lg"
+                placeholder="Address"
+              />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="phone" class="form-label"><i class="fas fa-phone-alt"></i> Phone</label>
+              <input
+                [(ngModel)]="editingRestaurant.phone"
+                id="phone"
+                class="form-control form-control-lg"
+                placeholder="Phone"
+              />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="email" class="form-label"><i class="fas fa-envelope"></i> Email</label>
+              <input
+                [(ngModel)]="editingRestaurant.email"
+                id="email"
+                class="form-control form-control-lg"
+                placeholder="Email"
+              />
+            </div>
+
+            <div class="col-md-12 text-center mt-4">
+              <button
+                class="btn btn-success btn-lg px-4 py-2"
+                (click)="saveEdit(restaurants.restaurantId)"
+              >
+                <i class="fas fa-save"></i> Save Changes
+              </button>
+
+              <button
+                class="btn btn-secondary btn-lg px-4 py-2"
+                (click)="cancelEdit()"
+              >
+                <i class="fas fa-times"></i> Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

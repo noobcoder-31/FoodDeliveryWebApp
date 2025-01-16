@@ -1,0 +1,92 @@
+/* Profile Image Styling */
+.profile-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 5px solid #007bff;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect for Buttons and Cards */
+.transition-effect {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transition-effect:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Styling */
+.card {
+  border-radius: 12px;
+  border: none;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.card-body h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.list-unstyled li {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.list-unstyled li i {
+  margin-right: 10px;
+  color: #007bff;
+}
+
+/* Button Styling */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+/* Modal Custom Styles */
+.modal-content {
+  border-radius: 10px;
+}
+
+.modal-header {
+  background-color: #f1f1f1;
+}
+
+.modal-footer .btn-primary {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+/* Small Screen Responsive */
+@media (max-width: 767px) {
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+}

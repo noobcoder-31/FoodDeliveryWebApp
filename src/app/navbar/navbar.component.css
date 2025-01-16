@@ -1,0 +1,21 @@
+nav{
+  background-color: white;
+}
+#login-btn{
+  color: white;
+}
+.register{
+  background-color: #37b7c3;
+}
+.register:hover{
+  background-color: white;
+  border-color: #37b7c3 !important;
+  text-decoration: none;
+}
+#login-btn:hover{
+  color: #37b7c3;
+}
+.nav-link:hover{
+  color: #37b7c3 !important;
+  text-decoration: underline;
+}

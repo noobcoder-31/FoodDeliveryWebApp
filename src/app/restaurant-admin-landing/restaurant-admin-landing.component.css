@@ -1,0 +1,87 @@
+/* Transition Effect for Buttons */
+.transition-effect {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transition-effect:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Hover Effect */
+.card {
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Body Background and Container Styles */
+body {
+  background-color: #f4f7fc;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon Animation */
+.animate__pulse {
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* Card Body Padding and Layout */
+.card-body {
+  padding: 2rem;
+}
+
+/* Responsive Typography */
+h5.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.text-muted {
+  font-size: 1rem;
+}
+
+/* Centering the content inside cards */
+.text-center {
+  text-align: center;
+}
+
+/* Button Styles */
+.btn {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 12px 24px;
+}
+
+/* Add specific colors for buttons */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+/* Make buttons rounded and add some hover effects */
+.btn:hover {
+  border-radius: 50px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+

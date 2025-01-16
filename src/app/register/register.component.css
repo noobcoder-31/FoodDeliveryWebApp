@@ -1,0 +1,28 @@
+.mybtn{
+  background-color: #37b7c3;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+}
+a{
+  text-decoration: none;
+}
+.container{
+  width: 60%;
+}
+.mybtn:hover{
+  background-color: white;
+  color: #37b7c3;
+  border: 1px solid #37b7c3;
+}
+.accCheck{
+  color: blue;
+  font-size:x-small;
+  margin-left: 210px;
+  cursor: pointer;
+  }
+  .accCheck:hover{
+    text-decoration: underline;
+  }
